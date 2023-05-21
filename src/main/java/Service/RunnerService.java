@@ -1,7 +1,17 @@
 @Stateless
-public class RunnerService {
+package Service;
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+//import EntityManager;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.PersistenceContext;
+
+public class runnerService {
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
     @Path("signUp")
     @post
     public void signUp(Runner runner) {
