@@ -1,65 +1,51 @@
 package Entities;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import Resturant.Restaurant;
 
 @Entity
-public class OrderEntity<Item> {
+@PermitAll
+@RolesAllowed({"owner"})
+public class ResturantEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	/*
-	 * @OneToMany
-     private UserController customer;
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 
-    @ManyToOne
-     private Restaurant restaurant;
 
-    @OneToOne
-     private Runner driver;
-
-	 */
-	
-	private static int Order_id;
-	private static double Total_price;
-	private int fk_runnerId;
-	private static String Order_status;
-	private int Resturant_id;
+	private String Order_status;
+	private static int Resturant_id;
+	private String Resturant_name;
+	private int OwnerId;
 	private List<String> listOfMeals;
-	//private static List<Item> items;
+	
+	@OneToMany(mappedBy="restaurant")
+     private List menuItems = new ArrayList<>();
 
-	public static int getOrder_id() {
-		return Order_id;
-	}
-	public void setOrder_id(int order_id) {
-		Order_id = order_id;
-	}
-	public int getTotal_price() {
-		return (int) Total_price;
-	}
-	public static void setTotal_price(double total_price2) {
-		Total_price = total_price2;
-	}
-	public int getFk_runnerId() {
-		return fk_runnerId;
-	}
-	public void setFk_runnerId(int fk_runnerId) {
-		this.fk_runnerId = fk_runnerId;
-	}
-	public static String getOrder_status() {
-		return Order_status;
-	}
-	public static void setOrder_status(String order_status) {
-		Order_status = order_status;
-	}
-	public int getResturant_id() {
+    @OneToMany(mappedBy="assignedDriver")
+     private Set currentOrders = new HashSet<>();
+
+	
+
+	public static int getResturant_id() {
 		return Resturant_id;
 	}
 	public void setResturant_id(int resturant_id) {
 		Resturant_id = resturant_id;
+	}
+	public String getResturant_name() {
+		return Resturant_name;
+	}
+	public void setResturant_name(String resturant_name) {
+		Resturant_name = resturant_name;
 	}
 	public List<String> getListOfMeals() {
 		return listOfMeals;
@@ -67,11 +53,28 @@ public class OrderEntity<Item> {
 	public void setListOfMeals(List<String> listOfMeals) {
 		this.listOfMeals = listOfMeals;
 	}
-	
-    public static int getDelivery_fees() {
-        return 0;
+	public int getOwnerId() {
+		return OwnerId;
+	}
+	public void setOwnerId(int ownerId) {
+		OwnerId = ownerId;
+	}
+	public String getOrder_status() {
+		return Order_status;
+	}
+	public void setOrder_status(String order_status) {
+		Order_status = order_status;
+	}
+	public static void setRestaurant(Restaurant find) {
+	}
+    public static String name() {
+        return null;
     }
-   
-    
+	
+	
+	
+	 
+	
+	
 
 }
