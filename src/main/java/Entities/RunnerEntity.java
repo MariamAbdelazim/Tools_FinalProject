@@ -10,17 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
+@PermitAll
+@RolesAllowed({"runner"})
 public class RunnerEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int Runner_id;
+	private static int Runner_id;
 	private String Runner_name;
 	private static String Runner_status;
-	private int Delivery_fees;
+	private static int Delivery_fees;
     @OneToMany(mappedBy="driver")
      private Set assignedOrders = new HashSet<>();
 
-	public int getRunner_id() {
+	public static int getRunner_id() {
 		return Runner_id;
 	}
 	public void setRunner_id(int runner_id) {
@@ -38,11 +40,13 @@ public class RunnerEntity {
 	public static void setRunner_status(String runner_status) {
 		Runner_status = runner_status;
 	}
-	public int getDelivery_fees() {
+	public static int getDelivery_fees() {
 		return Delivery_fees;
 	}
 	public void setDelivery_fees(int delivery_fees) {
 		Delivery_fees = delivery_fees;
 	}
+    public static void setRunner() {
+    }
 
 }
