@@ -1,11 +1,15 @@
 package Entities;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ResturantEntity {
@@ -19,7 +23,12 @@ public class ResturantEntity {
 	private int OwnerId;
 	private List<String> listOfMeals;
 	
-	
+	@OneToMany(mappedBy="restaurant")
+     private List menuItems = new ArrayList<>();
+
+    @OneToMany(mappedBy="assignedDriver")
+     private Set currentOrders = new HashSet<>();
+
 	
 
 	public int getResturant_id() {
