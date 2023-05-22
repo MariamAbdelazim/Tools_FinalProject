@@ -1,16 +1,26 @@
-@Stateless
-public class UserService {
+package Service;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import Entities.UserEntity;
+
+
+public class userService {
     @PersistenceContext
     EntityManager em;
     @Path("signUp")
-    @post
-    public void signUp(User user) {
+    @POST
+    public void signUp(UserEntity user) {
         // validate user input
         em.persist(user);
     }
     @Path("login")
-    @post
-    public User login(String name, String password) {
+    @POST
+    public UserEntity login(String name, String password) {
+        return login(name, password);
         // check user credentials and return user object
     }
 }
