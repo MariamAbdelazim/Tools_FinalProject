@@ -13,13 +13,13 @@ public class userService {
     EntityManager em;
     @Path("signUp")
     @POST
-    public void signUp(UserEntity user) {
+    public void signUp_user(UserEntity user) {
         // validate user input
         em.persist(user);
     }
     @Path("login")
     @POST
-    public UserEntity login(String name, String password) {
+    public UserEntity login_user(String name, String password) {
         return login(name, password);
         // check user credentials and return user object
     }
