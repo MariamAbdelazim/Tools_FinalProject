@@ -12,13 +12,21 @@ import Resturant.Restaurant;
 public class MealEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int Meal_id;
+	private static int quantity;
+	private static int Meal_id;
 	private static String Meal_name;
 	private static Double Price;
 	private int fk_restaurantId;
-    @ManyToOne
+	
+    public static int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	@ManyToOne
     private Restaurant restaurant;
-	public int getMeal_id() {
+	public static int getMeal_id() {
 		return Meal_id;
 	}
 	public void setMeal_id(int meal_id) {
