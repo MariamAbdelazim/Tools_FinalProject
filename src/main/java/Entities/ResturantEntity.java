@@ -11,14 +11,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import Resturant.Restaurant;
+
 @Entity
+@PermitAll
+@RolesAllowed({"owner"})
 public class ResturantEntity {
 	@Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 
 
 	private String Order_status;
-	private int Resturant_id;
+	private static int Resturant_id;
 	private String Resturant_name;
 	private int OwnerId;
 	private List<String> listOfMeals;
@@ -31,7 +35,7 @@ public class ResturantEntity {
 
 	
 
-	public int getResturant_id() {
+	public static int getResturant_id() {
 		return Resturant_id;
 	}
 	public void setResturant_id(int resturant_id) {
@@ -61,6 +65,11 @@ public class ResturantEntity {
 	public void setOrder_status(String order_status) {
 		Order_status = order_status;
 	}
+	public static void setRestaurant(Restaurant find) {
+	}
+    public static String name() {
+        return null;
+    }
 	
 	
 	
