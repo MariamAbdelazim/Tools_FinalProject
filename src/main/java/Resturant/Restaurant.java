@@ -2,12 +2,25 @@ package Resturant;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.concurrent.GuardedBy;
+import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.google.inject.Inject;
+
+import Entities.MealEntity;
 import Entities.ResturantEntity;
+
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @RequestScoped
 @Path("/")
-
 public class Restaurant {
     @Inject
     private Map<String, Double> menu;
@@ -22,50 +35,50 @@ public class Restaurant {
         this.canceledOrders = 0;
     }
     @Path("addToMenu")
-    @post
+    @POST
     public void addToMenu(String meal, double price) {
-        menu.put(MealEntity.getMeal_name, MealEntity.getPrice);
+        menu.put(MealEntity.getMeal_name(), MealEntity.getPrice());
     }
-    @put
+    @PUT
     public void editMenu(String meal, double price) {
-        if (menu.containsKey(MealEntity.getMeal_name)) {
-            menu.put(MealEntity.getMeal_name, MealEntity.getPrice);
+        if (menu.containsKey(MealEntity.getMeal_name())) {
+            menu.put(MealEntity.getMeal_name(), MealEntity.getPrice());
         }
     }
     @Path("addOrder")
-    @post
+    @POST
     public void addOrder(String meal, int quantity, boolean isCanceled) {
-        if (menu.containsKey(MealEntity.getMeal_name)) {
-            double price = menu.get(MealEntity.getMeal_name);
-            double total = MealEntity.getPrice * quantity;
+        if (menu.containsKey(MealEntity.getMeal_name())) {
+            double price = menu.get(MealEntity.getMeal_name());
+            double total = MealEntity.getPrice() * quantity;
             if (isCanceled) {
                 canceledOrders++;
             } else {
                 completedOrders++;
-                if (earnings.containsKey(MealEntity.getMeal_name)) {
-                    total += earnings.get(MealEntity.getMeal_name);
+                if (earnings.containsKey(MealEntity.getMeal_name())) {
+                    total += earnings.get(MealEntity.getMeal_name());
                 }
-                earnings.put(MealEntity.getMeal_name, total);
+                earnings.put(MealEntity.getMeal_name(), total);
             }
         }
     }
-    @Get
+    @GET
     public Map<String, Double> getMenu() {
         return menu;
     }
-    @Get
+    @GET
     public Map<String, Double> getEarnings() {
         return earnings;
     }
-    @Get
+    @GET
     public int getCompletedOrders() {
         return completedOrders;
     }
-    @Get
+    @GET
     public int getCanceledOrders() {
         return canceledOrders;
     }
-    @Get
+    @GET
     public double getTotalEarnings() {
         double total = 0;
         for (double value : earnings.values()) {
