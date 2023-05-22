@@ -23,13 +23,13 @@ public class resturantService {
     //@Resource
     private EntityManager em;
     
-    @Path("signUp")
+    @Path("signUp_resturant")
     @POST
     public resturantService signUp_resturant(int resturant_id,String resturan_name, String resturant_password) {
         // validate restaurant input
-        return Resturant_signUp(resturant_id,resturan_name,resturant_password);
+        return signUp_resturant(resturant_id,resturan_name,resturant_password);
     }
-    @Path("login")
+    @Path("login_resturant")
     @POST
     public Restaurant login_resturant(String resturan_name, String resturant_password) {
         return Resturant_login(resturan_name,resturant_password);
