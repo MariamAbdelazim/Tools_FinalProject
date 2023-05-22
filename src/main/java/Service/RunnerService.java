@@ -21,14 +21,14 @@ public class runnerService {
     private EntityManager em;
     @Path("signUp")
     @POST
-    public void signUp(Runner runner) {
+    public void signUp_runner(Runner runner) {
         // validate runner input
         em.persist(runner);
     }
  
     @Path("login")
     @POST
-    public String login(String name, String password) {
+    public String login_runner(String name, String password) {
         
         // check runner credentials and return runner object
         return login(name, password);
