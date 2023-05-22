@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class OrderEntity {
+public class OrderEntity<Item> {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	/*
@@ -24,11 +24,13 @@ public class OrderEntity {
 	 */
 	
 	private static int Order_id;
-	private int Total_price;
+	private static double Total_price;
 	private int fk_runnerId;
 	private static String Order_status;
 	private int Resturant_id;
 	private List<String> listOfMeals;
+	//private static List<Item> items;
+
 	public static int getOrder_id() {
 		return Order_id;
 	}
@@ -36,10 +38,10 @@ public class OrderEntity {
 		Order_id = order_id;
 	}
 	public int getTotal_price() {
-		return Total_price;
+		return (int) Total_price;
 	}
-	public void setTotal_price(int total_price) {
-		Total_price = total_price;
+	public static void setTotal_price(double total_price2) {
+		Total_price = total_price2;
 	}
 	public int getFk_runnerId() {
 		return fk_runnerId;
@@ -47,7 +49,7 @@ public class OrderEntity {
 	public void setFk_runnerId(int fk_runnerId) {
 		this.fk_runnerId = fk_runnerId;
 	}
-	public String getOrder_status() {
+	public static String getOrder_status() {
 		return Order_status;
 	}
 	public static void setOrder_status(String order_status) {
@@ -65,8 +67,11 @@ public class OrderEntity {
 	public void setListOfMeals(List<String> listOfMeals) {
 		this.listOfMeals = listOfMeals;
 	}
+	
     public static int getDelivery_fees() {
         return 0;
     }
+   
+    
 
 }
