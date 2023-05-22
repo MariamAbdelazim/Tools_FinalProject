@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "febd9870-d7b5-499e-a4cb-84073b2ea9e2",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25137200",
+		"_collection_link": "https://www.postman.com/warped-shuttle-170702/workspace/finalproject/collection/25137200-febd9870-d7b5-499e-a4cb-84073b2ea9e2?action=share&creator=25137200&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "addToMenu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Meal\":\"Burger\",\r\n\"price\": 100}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/addToMenu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"addToMenu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editMenu",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Meal\":\"Burger\",\r\n\"price\": 120}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/editMenu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"editMenu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Meal\":\"burger\",\r\n \"quantity\":2,\r\n \"isCanceled\":\"False\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/addOrder",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"addOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMenu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getMenu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getMenu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getErnings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getEarnings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getEarnings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCompletedOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getCompletedOrders",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getCompletedOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCancelendOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getCanceledOrders",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getCanceledOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTotalErnings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getTotalEarnings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getTotalEarnings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRunnerStatus",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"runnerId\":20206160,\r\n \"status\":\"available\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/updateRunnerStatus",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"updateRunnerStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNumberOfTripsCompletedByRunner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getNumberOfTripsCompletedByRunner",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getNumberOfTripsCompletedByRunner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creatUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":\"Maryam\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/creatUser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"creatUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/getUserById",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"getUserById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creatOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customerId\":1,\r\n \"restaurantId\":2020}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/creatOrder",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"creatOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orderId\":12,\r\n  \"items\":\"burger\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/editOrder",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"editOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listResturants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/FinalProject/listRestaurants",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"FinalProject",
+						"listRestaurants"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
