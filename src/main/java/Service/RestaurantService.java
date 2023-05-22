@@ -18,9 +18,8 @@ public class resturantService {
     private EntityManager em;
     @Path("signUp")
     @POST
-    public void signUp(Restaurant restaurant) {
+    public void signUp(String name, int id , String role) {
         // validate restaurant input
-        em.persist(restaurant);
     }
     @Path("login")
     @POST
