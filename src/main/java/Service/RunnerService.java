@@ -38,7 +38,7 @@ public class runnerService {
      * @return
      */
     @PUT
-    public double calculateOrderTotal(Order order) {
+    public double calculateOrderTotal( int Order_id , double Total_price,int runnerId, String Order_status,int Resturant_id,List<String> listOfMeals) {
         // calculate order total based on delivery fees and item prices
         // return OrderEntity.getOrder_id().stream().mapToDouble(Item::getPrice).sum() + ((Object) order).getRunner().getDelivery_fees();
       return SumFunction(OrderEntity.getOrder_id()+OrderEntity.getDelivery_fees());
