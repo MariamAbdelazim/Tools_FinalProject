@@ -11,14 +11,25 @@ import javax.persistence.Id;
 public class OrderEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	/*
+	 * @OneToMany
+     private UserController customer;
+
+    @ManyToOne
+     private Restaurant restaurant;
+
+    @OneToOne
+     private Runner driver;
+
+	 */
 	
-	private int Order_id;
+	private static int Order_id;
 	private int Total_price;
 	private int fk_runnerId;
-	private String Order_status;
+	private static String Order_status;
 	private int Resturant_id;
 	private List<String> listOfMeals;
-	public int getOrder_id() {
+	public static int getOrder_id() {
 		return Order_id;
 	}
 	public void setOrder_id(int order_id) {
@@ -39,7 +50,7 @@ public class OrderEntity {
 	public String getOrder_status() {
 		return Order_status;
 	}
-	public void setOrder_status(String order_status) {
+	public static void setOrder_status(String order_status) {
 		Order_status = order_status;
 	}
 	public int getResturant_id() {
@@ -54,5 +65,8 @@ public class OrderEntity {
 	public void setListOfMeals(List<String> listOfMeals) {
 		this.listOfMeals = listOfMeals;
 	}
+    public static int getDelivery_fees() {
+        return 0;
+    }
 
 }
