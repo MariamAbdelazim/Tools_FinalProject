@@ -19,16 +19,16 @@ public class runnerService {
     private static final String Item = null;
     @PersistenceContext
     private EntityManager em;
-    @Path("signUp")
+    @Path("signUp_runner")
     @POST
-    public runnerService runner_signUp(int runner_id,String runner_name, String runner_password) {
+    public runnerService signUp_runner(int runner_id,String runner_name, String runner_password) {
         // validate runner input
         return runner_signUp(runner_id,runner_name,runner_password);
     }
  
-    @Path("login")
+    @Path("login_runner")
     @POST
-    public String runner_login(String runner_name, String runner_password) {
+    public String login_runner(String runner_name, String runner_password) {
         
         // check runner credentials and return runner object
         return login_runner(runner_name, runner_password);
