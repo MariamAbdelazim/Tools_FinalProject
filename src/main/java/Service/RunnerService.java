@@ -21,31 +21,31 @@ public class runnerService {
     private EntityManager em;
     @Path("signUp")
     @POST
-    public void signUp_runner(Runner runner) {
+    public runnerService runner_signUp(int runner_id,String runner_name, String runner_password) {
         // validate runner input
-        em.persist(runner);
+        return runner_signUp(runner_id,runner_name,runner_password);
     }
  
     @Path("login")
     @POST
-    public String login_runner(String name, String password) {
+    public String runner_login(String runner_name, String runner_password) {
         
         // check runner credentials and return runner object
-        return login(name, password);
+        return login_runner(runner_name, runner_password);
     }
     /**
      * @param order
      * @return
      */
     @PUT
-    public double calculateOrderTotal( int Order_id , double Total_price,int runnerId, String Order_status,int Resturant_id,List<String> listOfMeals) {
+    public double calculateOrderTotal(Order order) {
         // calculate order total based on delivery fees and item prices
         // return OrderEntity.getOrder_id().stream().mapToDouble(Item::getPrice).sum() + ((Object) order).getRunner().getDelivery_fees();
       return SumFunction(OrderEntity.getOrder_id()+OrderEntity.getDelivery_fees());
     }
 
     private double SumFunction(int i) {
-        return 0;
-    }
+        return 0;
+    }
 
 }
