@@ -1,20 +1,35 @@
+package Service;
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import Entities.MealEntity;
+import Resturant.Restaurant;
+
 @Stateless
-public class RestaurantService {
+public class resturantService {
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
     @Path("signUp")
-    @post
+    @POST
     public void signUp(Restaurant restaurant) {
         // validate restaurant input
         em.persist(restaurant);
     }
     @Path("login")
-    @post
+    @POST
     public Restaurant login(String name, String password) {
-        // check restaurant credentials and return restaurant object
+        return login(name, password);
     }
-    @Get
-    public List<Meal> getMeals(int restaurantId) {
+    @GET
+    public List<MealEntity> getMeals(int restaurantId) {
+        return getMeals(restaurantId);
         // return list of meals for given restaurantId
     }
 }
