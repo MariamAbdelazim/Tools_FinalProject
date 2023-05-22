@@ -16,20 +16,14 @@ import Entities.MealEntity;
 import Entities.OrderEntity;
 import Entities.ResturantEntity;
 import Entities.RunnerEntity;
-
-
 @Stateless
+
 public class userController<Item> {
+    
     private static final Double Item = null;
     private static final String Order = null;
     @PersistenceContext
     private EntityManager em;
-    public static Double setItems() {
-		return Item;
-	}
-	public void setItems(Double items) {
-		items = items;
-	}
     @Path("creatUser")
     @POST
     public void createUser(userController user) {
@@ -46,14 +40,11 @@ public class userController<Item> {
      */
     @Path("creatOrder")
     @POST
-    public void createOrder(int customerId, int restaurantId, List<Item> items) { // find a random available runner List<Runner> runners = em.createQuery("SELECT r FROM Runner r WHERE r.status = 'available'", Runner.class).getResultList(); Runner runner = runners.get((int) (Math.random() * runners.size())); runner.setStatus("busy"); em.merge(runner);
+    public void createOrder(int customerId, int restaurantId) { // find a random available runner List<Runner> runners = em.createQuery("SELECT r FROM Runner r WHERE r.status = 'available'", Runner.class).getResultList(); Runner runner = runners.get((int) (Math.random() * runners.size())); runner.setStatus("busy"); em.merge(runner);
     // create the order
        OrderEntity order =  new OrderEntity<Order>();
-      //Order.setItems(items);
       double total_price = 0;
-      
          total_price += MealEntity.getPrice() * MealEntity.getQuantity();
-      
       total_price += RunnerEntity.getDelivery_fees();
       OrderEntity.setTotal_price(total_price);
       RunnerEntity.setRunner();
