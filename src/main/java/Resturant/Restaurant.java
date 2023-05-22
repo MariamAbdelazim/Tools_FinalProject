@@ -1,8 +1,6 @@
 package Resturant;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.concurrent.GuardedBy;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -11,11 +9,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
 import com.google.inject.Inject;
-
 import Entities.MealEntity;
-import Entities.ResturantEntity;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
