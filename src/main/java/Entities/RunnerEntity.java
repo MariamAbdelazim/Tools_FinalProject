@@ -1,9 +1,13 @@
 package Entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class RunnerEntity {
@@ -11,8 +15,10 @@ public class RunnerEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Runner_id;
 	private String Runner_name;
-	private String Runner_status;
+	private static String Runner_status;
 	private int Delivery_fees;
+    @OneToMany(mappedBy="driver")
+     private Set assignedOrders = new HashSet<>();
 
 	public int getRunner_id() {
 		return Runner_id;
@@ -29,7 +35,7 @@ public class RunnerEntity {
 	public String getRunner_status() {
 		return Runner_status;
 	}
-	public void setRunner_status(String runner_status) {
+	public static void setRunner_status(String runner_status) {
 		Runner_status = runner_status;
 	}
 	public int getDelivery_fees() {
