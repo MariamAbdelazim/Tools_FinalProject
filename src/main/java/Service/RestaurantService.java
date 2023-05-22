@@ -18,12 +18,12 @@ public class resturantService {
     private EntityManager em;
     @Path("signUp")
     @POST
-    public void signUp(String name, int id , String role) {
+    public void signUp_resturant(String name, int id , String role) {
         // validate restaurant input
     }
     @Path("login")
     @POST
-    public Restaurant login(String name, String password) {
+    public Restaurant login_resturant(String name, String password) {
         return login(name, password);
     }
     @GET
